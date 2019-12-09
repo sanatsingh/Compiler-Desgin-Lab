@@ -7,8 +7,19 @@ int main( )
     char c;
     fp = fopen("test.txt","r");
     char d;
-    while((c=fgetc(fp))!=EOF){  
-        if(c=='/'){
+    while((c=fgetc(fp))!=EOF){
+        if((int)c==39){
+            printf("%c",c);
+            while(1){
+                c=fgetc(fp);
+                if((int)c==39){
+                    printf("%c",c);
+                    break;
+                }
+                printf("%c",c);  
+            }
+        }  
+        else if(c=='/'){
             if((c=fgetc(fp))=='/'){
                 while(c=fgetc(fp)!='\n');
                 printf("%c",c);
@@ -20,7 +31,8 @@ int main( )
                 printf("/%c",c);
             }
         }
-        else if(c!=' ')printf("%c",c);   
+        else if(c!=' ')printf("%c",c);
+           
     } 
     
     return 0;         

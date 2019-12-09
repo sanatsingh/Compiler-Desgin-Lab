@@ -1,5 +1,5 @@
 Test run 5
-//abc
+'//abc'
 /**/
 /**a*/a
 def/gef
