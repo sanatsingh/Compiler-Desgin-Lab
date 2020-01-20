@@ -1,0 +1,5 @@
+1. WAP to print contents of a file with it's line number.
+2. WAP to replace all the 'printf' statements with 'scanf'.
+3. WAP to print all the operators in a file.
+4. WAP to display the constants from a file.
+ 
