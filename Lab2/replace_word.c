@@ -5,8 +5,8 @@ int main( )
 { 
     FILE *fp;
     char c;
-    char d[7];
-    int i=0;
+    int i;
+	scanf("%d",&i);
     fp = fopen("line_no.c","r");
     while((c=fgetc(fp))!=EOF){
         
@@ -53,12 +53,50 @@ int main( )
        			{
        				printf("p%c",c);
        			}
-       		}
+       	}
+
+		else if(c=='s')
+       	{
+       		c = fgetc(fp);
+       		if(c=='c')
+       		{
+       			c = fgetc(fp);
+       			if(c=='a')
+       			{
+       				c = fgetc(fp);
+       				if(c=='n')
+       				{
+						c = fgetc(fp);
+						if(c=='f')
+			   			{
+							c=fgetc(fp);
+							printf("printf%c",c);
+						}
+						else
+						{
+							printf("scan%c",c);
+			 			}
+					}	
+			   		else
+			   		{
+						printf("sca%c",c);
+			   		}
+       			}
+		   		else
+		   		{
+		   			printf("sc%c",c);
+		   		}
+			}
        		else
        		{
-       			printf("%c",c);
-       		}
-    } 
-    
+    			printf("s%c",c);
+   			}
+       	}
+       	else
+    	{
+			printf("%c",c);
+   		}
+	}
+
     return 0;         
 } 
