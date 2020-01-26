@@ -1,7 +1,8 @@
 Test run 5
 "'//abc'"
-
-/**/
+'abc'
+"/\/abc"
+/***/
 /**a*/a
 def/gef
 /gef

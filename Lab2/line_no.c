@@ -1,8 +1,7 @@
-# include <stdio.h> 
-# include <string.h> 
-   
-int main( ) 
-{ 
+# include <stdio.h>
+# include <string.h>
+int main( )
+{
     FILE *fp;
     char c;
     int i=1;
@@ -12,8 +11,8 @@ int main( )
         printf("%c",c);
         if(c=='\n'){
             printf("%d ",++i);
-        }  
-    } 
-    
-    return 0;         
-} 
+        }
+    }
+
+    return 0;
+}

@@ -10,26 +10,18 @@ int main( )
     while((c=fgetc(fp))!=EOF){
         if((int)c==34){
             printf("%c",c);
-            while(1){
-                c=fgetc(fp);
-                if((int)c==34){
-                    printf("%c",c);
-                    break;
-                }
-                printf("%c",c);  
+            while((int)(c=fgetc(fp))!=34){
+                printf("%c",c);
             }
+            printf("%c",c);
         }
         else if((int)c==39){
             printf("%c",c);
-            while(1){
-                c=fgetc(fp);
-                if((int)c==39){
-                    printf("%c",c);
-                    break;
-                }
-                printf("%c",c);  
+            while((int)(c=fgetc(fp))!=39){
+                printf("%c",c);
             }
-        }   
+            printf("%c",c);
+        }
         else if(c=='/'){
             if((c=fgetc(fp))=='/'){
                 while(c=fgetc(fp)!='\n');
@@ -43,8 +35,8 @@ int main( )
             }
         }
         else if(c!=' ')printf("%c",c);
-           
-    } 
-    
-    return 0;         
-} 
+
+    }
+
+    return 0;
+}
