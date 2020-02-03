@@ -17,13 +17,14 @@ typedef enum _State {
 
 void print_state(State_ab s){
     switch(s){
-        case S_INVALID: printf("State : Invalid\n"); break;
+        case S_INVALID: printf("State : Invalid , Not a relational operator\n"); break;
         case S_lt: printf("State : S_lt\n"); break;
         case S_gt: printf("State : S_gt\n"); break;
-        case S_lte: printf("State : S_gt\n"); break;
-        case S_gte: printf("State : S_gt\n"); break;
-        case S_gte: printf("State : S_gt\n"); break;
-        case S_gt: printf("State : S_gt\n"); break;
+        case S_lte: printf("State : S_lte\n"); break;
+        case S_gte: printf("State : S_gte\n"); break;
+        case S_e: printf("State : S_e\n"); break;
+        case S_ee: printf("State : S_ee\n"); break;
+        case S_nt: printf("State : S_nt\n"); break;
     }
 }
 
@@ -31,32 +32,16 @@ void print_state(State_ab s){
 State_ab dfa(State_ab s, char *input) {
     if(*input == '\0' || *input == '\n') return s;
 
-    if(*input == 'a' && s==S_START) return dfa(S_A, input+1);
-    else if(*input == 'a' && s==S_A) return dfa(S_A, input+1);
-    else if(*input == 'b' && s==S_A) return dfa(S_END, input+1);
-    else if(*input == 'b' && s==S_START) return dfa(S_END, input+1);
+    if(*input == '<' && s==S_START) return dfa(S_lt, input+1);
+    else if(*input == '>' && s==S_START) return dfa(S_gt, input+1);
+    else if(*input == '>' && s==S_lt) return dfa(S_nt, input+1);
+    else if(*input == '=' && s==S_START) return dfa(S_e, input+1);
+    else if(*input == '=' && s==S_e) return dfa(S_ee, input+1);
+    else if(*input == '=' && s==S_lt) return dfa(S_lte, input+1);
+    else if(*input == '=' && s==S_gt) return dfa(S_gte, input+1);
     else return S_INVALID;
 }
 
-// ab*
-State_ab dfa_2(State_ab s, char *input) {
-    if(*input == '\0' || *input == '\n') return s;
-    if(*input == 'a' && s==S_START) return dfa_2(S_B, input+1);
-    else if(*input == 'b' && s==S_B) return dfa_2(S_B, input+1);
-    else return S_INVALID;
-}
-
-// a*b*
-State_ab dfa_3(State_ab s, char *input) {
-    if(*input == '\0' || *input == '\n') return s;
-
-    if(*input == 'a' && s==S_START) return dfa_3(S_A, input+1);
-    else if(*input == 'a' && s==S_A) return dfa_3(S_A, input+1);
-    else if(*input == 'b' && s==S_A) return dfa_3(S_B, input+1);
-    else if(*input == 'b' && s==S_B) return dfa_3(S_B, input+1);
-    else if(*input == 'b' && s==S_START) return dfa_3(S_B, input+1);
-    else return S_INVALID;
-}
 
 int main(int argc, char *argv[]) {
     char ch[1024];
@@ -67,18 +52,6 @@ int main(int argc, char *argv[]) {
 
     //ab
     State_ab s = dfa(S_START, buffer);
-    
-    printf("The given string %s\n", s == S_B ? "matches re a*b\n" : "does not match\n");
-    print_state(s);
-
-    s = dfa_2(S_START, buffer);
-    
-    printf("The given string %s\n", s == S_B ? "matches re ab*\n" : "does not match\n");
-    print_state(s);
-
-    s = dfa_3(S_START, buffer);
-    
-    printf("The given string %s\n", s == S_B ? "matches re a*b*\n" : "does not match\n");
     print_state(s);
 
     return EXIT_SUCCESS;
