@@ -3,8 +3,13 @@
 
 typedef enum _State {
     S_START,
-    S_A,
-    S_B,
+    S_lt,
+    S_gt,
+    S_lte,
+    S_gte,
+    S_e,
+    S_ee,
+    S_nt,
     S_INVALID
 } State_ab;
 
@@ -13,8 +18,12 @@ typedef enum _State {
 void print_state(State_ab s){
     switch(s){
         case S_INVALID: printf("State : Invalid\n"); break;
-        case S_A: printf("State : S_A\n"); break;
-        case S_B: printf("State : S_B\n"); break;
+        case S_lt: printf("State : S_lt\n"); break;
+        case S_gt: printf("State : S_gt\n"); break;
+        case S_lte: printf("State : S_gt\n"); break;
+        case S_gte: printf("State : S_gt\n"); break;
+        case S_gte: printf("State : S_gt\n"); break;
+        case S_gt: printf("State : S_gt\n"); break;
     }
 }
 
