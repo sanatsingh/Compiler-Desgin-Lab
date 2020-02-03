@@ -1,0 +1,5 @@
+Create a .l file (lex file)
+%% for patterns
+% for declarations
+int yywrap() needs to be defined
+in main do yylex()
