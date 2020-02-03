@@ -1,0 +1,6 @@
+Q1.WAP to check the validation of the following regular expressions using DFA :-
+    a) a*b
+    b) ab*
+    c) a*b*
+    d) Integer=(sign)?(digit)+
+    e) Identifier=(letter|_)(letter|_|digit)
