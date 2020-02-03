@@ -5,4 +5,6 @@ Q1.WAP to check the validation of the following regular expressions using DFA :-
 
 Q2).WAP to check whether given operator is relational or not via DFA.
 
-Q3. Intro LEX program.
+Q3. 1)Intro LEX program.
+    2)Count vowels, consonants
+    3)Count integers and floats
