@@ -22,7 +22,7 @@ void print_state(State_ab s){
         case S_gt: printf("State : S_gt\n"); break;
         case S_lte: printf("State : S_lte\n"); break;
         case S_gte: printf("State : S_gte\n"); break;
-        case S_e: printf("State : S_e\n"); break;
+        case S_e: printf("State : S_e , Not a relational operator\n"); break;
         case S_ee: printf("State : S_ee\n"); break;
         case S_nt: printf("State : S_nt\n"); break;
     }
