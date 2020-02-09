@@ -14,34 +14,34 @@ int main()
     printf("%s",s);
     
     // Integer
-    for(int i=0;i<10;i++)
-    {
-    	if(s[i]=='+' || s[i] == '-')
-    	{
-    		while(s[++i]>='0' && s[++i]<='9' )
-    		{
-    			a =1;
-    		}
-    	}
-    	else if (s[i]>='0' && s[i]<='9')
-    	{
-    		a = 1;
-    	}
-    }
-    if(s[0]>='a' && s[0] <= 'z')
-    	{
-    		a =0;
+    // for(int i=0;i<10;i++)
+    // {
+    // 	if(s[i]=='+' || s[i] == '-')
+    // 	{
+    // 		while(s[++i]>='0' && s[++i]<='9' )
+    // 		{
+    // 			a =1;
+    // 		}
+    // 	}
+    // 	else if (s[i]>='0' && s[i]<='9')
+    // 	{
+    // 		a = 1;
+    // 	}
+    // }
+    // if(s[0]>='a' && s[0] <= 'z')
+    // 	{
+    // 		a =0;
     		
-    	}
-    if(a==1 )
-    {
-    	printf("\nSatisfy\n");
-    }
-    else
-    {
-    	printf("\nDo not satisfy\n");	
-    }
-    a =0;
+    // 	}
+    // if(a==1 )
+    // {
+    // 	printf("\nSatisfy\n");
+    // }
+    // else
+    // {
+    // 	printf("\nDo not satisfy\n");	
+    // }
+    // a =0;
 
 
     

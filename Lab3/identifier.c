@@ -1,36 +1,43 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<stdbool.h>
 
 typedef enum _State {
     S_START,
-    S_LETTER,
-    S_DIGIT,
     S_INVALID,
     S_VALID
 } State;
 
 #define S_END S_VALID
 
-// State dfa(State s, char *input) {
-//     if(*input == '\0' || *input == '\n') return s;
+bool isDigit(char *input){
+    if(*input >='0' && *input<='9') return true;
+    return false;
+}
 
-//     if(*input == '+' || *input=='-' && s==S_START) return dfa(S_DIGIT, input+1);
-//     else if(*input >='0' && *input<='9' && s==S_START) return dfa(S_END, input+1);
-//     else if(*input >='0' && *input<='9' && s==S_DIGIT) return dfa(S_END, input+1);
-//     else if(*input >='0' && *input<='9' && s==S_VALID) return dfa(S_END, input+1);
-//     else return S_INVALID;
-// }
+bool isChar(char *input){
+    if(*input>='A' && *input<='z' || *input=='_') return true;
+    return false;
+}
 
-// int main(){
-//     char ch[1024];
+State dfa(State s, char *input) {
+    if(*input == '\0' || *input == '\n') return s;
 
-//     printf("Enter string : ");
-//     char buffer[1024];
-//     fgets(buffer, sizeof(buffer), stdin);
+    if(isChar(input) && s==S_START) return dfa(S_VALID, input+1);
+    else if(isDigit(input) && s==S_VALID) return dfa(S_VALID, input+1);
+    else if(isChar(input) && s==S_VALID) return dfa(S_VALID, input+1);
+    else return S_INVALID;
+}
 
-//     State s = dfa(S_START, buffer);
+int main(){
+    // char ch[1024];
 
-//     printf("The given string %s\n", s == S_END ? "is an integer\n" : "is not an integer\n");
+    printf("Enter string : ");
+    char buffer[1024];
+    fgets(buffer, sizeof(buffer), stdin);
 
-//     return 0;
-// }
+    State s = dfa(S_START, buffer);
+    printf("The given string %s\n", s == S_END ? "is valid\n" : "is not valid\n");
+
+    return 0;
+}
