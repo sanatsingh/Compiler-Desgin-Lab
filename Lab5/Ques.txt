@@ -3,3 +3,4 @@
 3. WAL program to count number of printf and scanf functions,
    also replace scanf with printf and vice versa.
 4. WAL program to copy contents of a file with it's line number.
+5. WAL to count number of identifier, keyword, functions and store them in a seperate file. 
