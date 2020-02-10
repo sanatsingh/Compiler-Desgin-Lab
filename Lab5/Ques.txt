@@ -1,0 +1,5 @@
+1. WAL program to count no. of characters, words, lines from a file
+2. WAL program to count type of constants from a file.
+3. WAL program to count number of printf and scanf functions,
+   also replace scanf with printf and vice versa.
+4. WAL program to copy contents of a file with it's line number.
