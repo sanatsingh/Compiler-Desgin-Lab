@@ -19,7 +19,7 @@ int main()
 	yyin = fopen("trial.c","r");
     yyout= fopen("output.c", "w");
     yylex();
-    printf("%d %d,p,s");
+    printf("%d %d",p,s);
 	return 0;
 }
 int yywrap(){return 1;}
