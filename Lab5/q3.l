@@ -7,9 +7,9 @@
 chr [A-Za-z]
 %%
 {chr}+    {   if(strcmp(yytext, "printf")==0) 
-                {fprintf(yyout, "%s", "scanf");p++}
+                {fprintf(yyout, "%s", "scanf");p++;}
             else if(strcmp(yytext, "scanf")==0) 
-                {fprintf(yyout, "%s", "printf");s++}
+                {fprintf(yyout, "%s", "printf");s++;}
             else
                 fprintf(yyout, "%s", yytext);} 
 . {fprintf(yyout, "%s", yytext);}
